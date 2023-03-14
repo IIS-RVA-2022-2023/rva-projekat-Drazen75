@@ -24,7 +24,7 @@ public class Korisnik_usluge implements Serializable{
 	private String prezime;
 	private String maticni_broj;
 	
-	@OneToMany(mappedBy="Korisnik_usluge")
+	@OneToMany(mappedBy="korisnik_usluge")
 	private List<Usluga> usluge;
 	
 	public Korisnik_usluge() {

@@ -27,11 +27,11 @@ public class Usluga implements Serializable {
 	private double provizija;
 	
 	@ManyToOne
-	@JoinColumn(name="Filijala")
+	@JoinColumn(name="filijala")
 	private Filijala filijala;
 	
 	@ManyToOne
-	@JoinColumn(name="Korisnik_usluge")
+	@JoinColumn(name="korisnik_usluge")
 	private Korisnik_usluge korisnik_usluge;
 	
 	

@@ -26,7 +26,7 @@ public class Banka implements Serializable{
 	private String kontakt;
 	private int pib;
 	
-	@OneToMany(mappedBy="Banka")
+	@OneToMany(mappedBy="banka")
 	private List<Filijala> filijale;
 	
 	public Banka () {
