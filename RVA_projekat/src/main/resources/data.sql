@@ -100,10 +100,4 @@
 	insert into usluga(id, naziv, opis_usluge, datum_ugovora, provizija, filijala, korisnik_usluge)
 	values(nextval('USLUGA_SEQ'), 'Elektronsko placanje', 'Neogranicen broj naloga', to_date('21.07.2021.', 'dd.mm.yyyy'), 4, 8, 8);
 	
-	select *from banka
-	select * from filijala;
-	select * from korisnik_usluge;
-
-GRANT ALL ON DATABASE it75g2020 TO it75g2020;
-
-GRANT TEMPORARY ON DATABASE it75g2020 TO PUBLIC;
+	
