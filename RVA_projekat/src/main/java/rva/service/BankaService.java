@@ -24,8 +24,13 @@ public class BankaService {
 		}
 		
 		public Optional<List<Banka>> findByNaziv(String naziv){
-				Optional<List<Banka>> lista = Optional.of(repo.findByNazivContainingIgnoreCase(naziv));
-				return lista;
+				Optional<List<Banka>> banke = Optional.of(repo.findByNazivContainingIgnoreCase(naziv));
+				return banke;
+		}
+		
+		public List<Banka> findBySearch(String search) {
+			String searchEntry = search.toLowerCase();
+			return repo.getBySearch(searchEntry);
 		}
 		
 		public Banka save(Banka banka) {
@@ -33,7 +38,7 @@ public class BankaService {
 		}
 		
 		public boolean existsById(long id) {
-			if(findById(id).isPresent()){
+			if(repo.existsById(id)){
 				return true;
 			} else {
 				return false;

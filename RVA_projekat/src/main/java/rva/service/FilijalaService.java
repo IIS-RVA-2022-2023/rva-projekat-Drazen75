@@ -25,16 +25,22 @@ public class FilijalaService {
 		return repo.findById(Id);
 	}
 	
-	//Numericko obelezje 
-	public Optional<List<Filijala>> getByPosduje_sefTrue(){
-		return Optional.of(repo.findByPoseduje_sefIsTrue());
-		
+	public Optional<List<Filijala>> getByAdresa(String adresa) {
+		Optional<List<Filijala>> filijale = Optional.of(repo.findByAdresaContainingIgnoreCase(adresa));
+		return filijale;
 	}
 	
+	public List<Filijala> getBySearch(String search) {
+		String searchEntry = search.toLowerCase();
+		return repo.getBySearch(searchEntry);
+	}
 	
-	/*public Optional<List<Filijala>> getByBanka() {
-		return Optional.of(repo.findByBanka());
-	}*/
+	//Trazenje po banci koja je strani kljuc u filijali
+	public Optional<List<Filijala>> findFilijalaByBanka(Banka banka){
+		Optional<List<Filijala>> filijale = Optional.of(repo.findByBanka(banka));
+		return filijale;
+	}
+	
 	public Filijala save(Filijala filijala) {
 		return repo.save(filijala);
 	}

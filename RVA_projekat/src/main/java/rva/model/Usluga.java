@@ -32,7 +32,7 @@ public class Usluga implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name="korisnik_usluge")
-	private Korisnik_usluge korisnik_usluge;
+	private KorisnikUsluge korisnikUsluge;
 	
 	
 	public Usluga() {
@@ -68,4 +68,22 @@ public class Usluga implements Serializable {
 	public void setProvizija(double provizija) {
 		this.provizija = provizija;
 	}
+	
+	//******************
+	// Strani kljucevi
+	//******************
+	public Filijala getFilijala() {
+		return filijala;
+	}
+	public void setFilijala(Filijala filijala) {
+		this.filijala = filijala;
+	}
+	
+	public KorisnikUsluge getKorisnik() {
+		return korisnikUsluge;
+	}
+	public void setKorisnik(KorisnikUsluge korisnikUsluge) {
+		this.korisnikUsluge = korisnikUsluge;
+	}
+	
 }

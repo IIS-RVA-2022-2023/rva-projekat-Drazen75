@@ -14,9 +14,8 @@ import jakarta.persistence.SequenceGenerator;
 
 @Entity
 public class Filijala implements Serializable{
-	/**
-	 * 
-	 */
+	
+	
 	private static final long serialVersionUID = 1L;
 	@Id
 	@SequenceGenerator(name="FILIJALA_ID_GENERATOR", sequenceName="FILIJALA_SEQ", allocationSize = 1) 
@@ -60,5 +59,14 @@ public class Filijala implements Serializable{
 	}
 	public void setPoseduje_sef(boolean poseduje_sef) {
 		this.poseduje_sef = poseduje_sef;
+	}
+	//******************
+	// Strani kljuc
+	//******************
+	public Banka getBanka() {
+		return banka;
+	}
+	public void setBanka(Banka banka) {
+		this.banka = banka;
 	}
 }
