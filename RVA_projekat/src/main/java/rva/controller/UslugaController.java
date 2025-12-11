@@ -51,7 +51,7 @@ public class UslugaController {
 	    }
 
 	    @GetMapping("/usluga/uslugaSearch/{search}")
-	    public ResponseEntity<?> getUslugaBySearch(@PathVariable("search") String search) {
+	    public ResponseEntity<?> getUslugaBySearch(@PathVariable String search) {
 	        List<Usluga> usluge = service.getBySearch(search);
 	        if (usluge.isEmpty()) {
 	            return new ResponseEntity<>("No similar usluga exists", HttpStatus.NOT_FOUND);

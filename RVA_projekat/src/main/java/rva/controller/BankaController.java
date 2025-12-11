@@ -31,7 +31,7 @@ public class BankaController {
 			return ResponseEntity.ok(service.findAll());
 		}
 		
-		@GetMapping("/banka{id}")
+		@GetMapping("/banka/{id}")
 		public ResponseEntity<?> getBankaById(@PathVariable long id){
 			if(service.existsById(id)) {
 				return ResponseEntity.ok(service.findById(id));
@@ -54,8 +54,8 @@ public class BankaController {
 			}
 		}
 		
-		@GetMapping("banka/bankaSearch/{search}")
-		public  ResponseEntity<?> getBankaBySearch(@PathVariable("search") String search){
+		@GetMapping("/banka/bankaSearch/{search}")
+		public  ResponseEntity<?> getBankaBySearch(@PathVariable String search){
 			
 			List<Banka> bolnice = service.findBySearch(search);
 			if(bolnice.isEmpty())

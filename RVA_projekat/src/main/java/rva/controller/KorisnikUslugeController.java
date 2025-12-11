@@ -51,7 +51,7 @@ public class KorisnikUslugeController {
     }
 
     @GetMapping("korisnikUsluge/korisnikUslugeSearch/{search}")
-    public ResponseEntity<?> getKorisnikUslugeBySearch(@PathVariable("search") String search){
+    public ResponseEntity<?> getKorisnikUslugeBySearch(@PathVariable String search){
         List<KorisnikUsluge> korisnici = service.getBySearch(search);
         if(korisnici.isEmpty())
             return new ResponseEntity<>(

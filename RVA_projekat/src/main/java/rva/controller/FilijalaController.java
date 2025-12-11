@@ -61,7 +61,7 @@ public class FilijalaController {
 	}
 	
 	@GetMapping("filijala/filijalaSearch/{search}")
-	public  ResponseEntity<?> getFilijalaBySearch(@PathVariable("search") String search){
+	public  ResponseEntity<?> getFilijalaBySearch(@PathVariable String search){
 		List<Filijala> filijale = service.getBySearch(search);
 		if(filijale.isEmpty())
 			return new ResponseEntity<>(
