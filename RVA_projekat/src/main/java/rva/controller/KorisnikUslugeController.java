@@ -40,10 +40,10 @@ public class KorisnikUslugeController {
         }
     }
 
-    @GetMapping("/korisnikUsluge/prezime/{prezime}")
+    @GetMapping("/korisnikUsluge/ime/{ime}")
     public ResponseEntity<?> getKorisnikUslugeByPrezime(@PathVariable String prezime) {
-        if(!service.getByPrezime(prezime).isEmpty()) {
-            return ResponseEntity.ok(service.getByPrezime(prezime));
+        if(!service.getByIme(prezime).isEmpty()) {
+            return ResponseEntity.ok(service.getByIme(prezime));
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body("Korisnik_usluge with requested prezime (" + prezime + ") does not exist!");

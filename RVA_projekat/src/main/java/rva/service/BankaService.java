@@ -15,20 +15,20 @@ public class BankaService {
 		@Autowired
 		private BankaRepository repo;
 		
-		public List<Banka> findAll(){
+		public List<Banka> getAll(){
 			return repo.findAll();
 		}
 		
-		public Optional<Banka> findById(long id){
+		public Optional<Banka> getById(long id){
 			return repo.findById(id);
 		}
 		
-		public Optional<List<Banka>> findByNaziv(String naziv){
+		public Optional<List<Banka>> getByNaziv(String naziv){
 				Optional<List<Banka>> banke = Optional.of(repo.findByNazivContainingIgnoreCase(naziv));
 				return banke;
 		}
 		
-		public List<Banka> findBySearch(String search) {
+		public List<Banka> getBySearch(String search) {
 			String searchEntry = search.toLowerCase();
 			return repo.getBySearch(searchEntry);
 		}

@@ -10,11 +10,10 @@ import rva.model.KorisnikUsluge;
 
 public interface KorisnikUslugeRepository extends JpaRepository<KorisnikUsluge, Long>{
 	
-	public abstract List<KorisnikUsluge> findByImeOrPrezimeContainingIgnoreCase(String prezime);
+	public abstract List<KorisnikUsluge> findByImeContainingIgnoreCase(String ime);
 	
-	@Query("SELECT k FROM Korisnik_usluge k " +
-		       "WHERE LOWER(k.ime) LIKE LOWER(CONCAT('%', :search, '%')) " +
-		       "OR LOWER(k.prezime) LIKE LOWER(CONCAT('%', :search, '%'))")
+	@Query("SELECT k FROM KorisnikUsluge k " +
+		       "WHERE LOWER(k.ime) LIKE LOWER(CONCAT('%', :search, '%'))")
 
 	List<KorisnikUsluge> getBySearch(@Param("search") String search);
 }

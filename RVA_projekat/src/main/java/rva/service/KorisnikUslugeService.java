@@ -24,8 +24,8 @@ public class KorisnikUslugeService {
         return repo.findById(id);
     }
     
-    public Optional<List<KorisnikUsluge>> getByPrezime(String prezime) {
-        Optional<List<KorisnikUsluge>> korisnici = Optional.of(repo.findByImeOrPrezimeContainingIgnoreCase(prezime));
+    public Optional<List<KorisnikUsluge>> getByIme(String ime) {
+        Optional<List<KorisnikUsluge>> korisnici = Optional.of(repo.findByImeContainingIgnoreCase(ime));
         return korisnici;
     }
     

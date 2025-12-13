@@ -26,15 +26,20 @@ public class BankaController {
 		@Autowired
 		private BankaService service;
 		
+		@GetMapping("/test")
+		public String test() {
+		    return "Radi";
+		}
+		
 		@GetMapping ("/banka")
-		public ResponseEntity <List<Banka>> findAllBanks(){	
-			return ResponseEntity.ok(service.findAll());
+		public ResponseEntity <List<Banka>> getAllBanks(){	
+			return ResponseEntity.ok(service.getAll());
 		}
 		
 		@GetMapping("/banka/{id}")
 		public ResponseEntity<?> getBankaById(@PathVariable long id){
 			if(service.existsById(id)) {
-				return ResponseEntity.ok(service.findById(id));
+				return ResponseEntity.ok(service.getById(id));
 			} else {
 				return ResponseEntity.status(HttpStatus.NOT_FOUND)
 						.body("Resource with requested ID:" + id + "does not exist");
@@ -44,20 +49,20 @@ public class BankaController {
 		@GetMapping("/banka/naziv/{naziv}")
 		public ResponseEntity<?> getBankaByNaziv(@PathVariable String naziv){
 			
-			if(service.findByNaziv(naziv).get().isEmpty()) {
+			if(service.getByNaziv(naziv).get().isEmpty()) {
 				
 				return ResponseEntity.status(HttpStatus.NOT_FOUND)
 						.body("Resource with requested Naziv: " + naziv + "does not exist");
 				
 			}else {
-				return ResponseEntity.ok(service.findByNaziv(naziv).get());
+				return ResponseEntity.ok(service.getByNaziv(naziv).get());
 			}
 		}
 		
 		@GetMapping("/banka/bankaSearch/{search}")
 		public  ResponseEntity<?> getBankaBySearch(@PathVariable String search){
 			
-			List<Banka> bolnice = service.findBySearch(search);
+			List<Banka> bolnice = service.getBySearch(search);
 			if(bolnice.isEmpty())
 				return new ResponseEntity<>(
 				          "Ni jedna slicna banka ne postoji", 
@@ -79,7 +84,7 @@ public class BankaController {
 				
 			} else {
 				
-				List<Banka> lista = service.findAll();
+				List<Banka> lista = service.getAll();
 				long najvecaVrednost = 1;
 				
 				for (int i = 0; i < lista.size(); i++) {

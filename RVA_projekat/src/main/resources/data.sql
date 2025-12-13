@@ -24,28 +24,28 @@
 	
 	
 	
-	insert into "korisnikUsluge"(id, ime, prezime, maticni_broj)
+	insert into korisnik_usluge(id, ime, prezime, maticni_broj)
 	values (nextval('KORISNIK_USLUGE_SEQ'), 'Filip', 'Nikolic', '2108001810033');
 	
-	insert into "korisnikUsluge"(id, ime, prezime, maticni_broj)
+	insert into korisnik_usluge(id, ime, prezime, maticni_broj)
 	values (nextval('KORISNIK_USLUGE_SEQ'), 'Drazen', 'Kopuz', '0811001103251');
 	
-	insert into "korisnikUsluge"(id, ime, prezime, maticni_broj)
+	insert into korisnik_usluge(id, ime, prezime, maticni_broj)
 	values (nextval('KORISNIK_USLUGE_SEQ'), 'Vuk', 'Stojic', '1909001153145');
 	
-	insert into "korisnikUsluge"(id, ime, prezime, maticni_broj)
+	insert into korisnik_usluge(id, ime, prezime, maticni_broj)
 	values (nextval('KORISNIK_USLUGE_SEQ'), 'Danilo', 'Radivojevic', '2404001513545');
 	
-	insert into "korisnikUsluge"(id, ime, prezime, maticni_broj)
+	insert into korisnik_usluge(id, ime, prezime, maticni_broj)
 	values (nextval('KORISNIK_USLUGE_SEQ'), 'Ivan', 'Kukricar', '2004001543854');
 	
-	insert into "korisnikUsluge"(id, ime, prezime, maticni_broj)
+	insert into korisnik_usluge(id, ime, prezime, maticni_broj)
 	values (nextval('KORISNIK_USLUGE_SEQ'), 'Darko', 'Mihic', '3003001542635');
 	
-	insert into "korisnikUsluge"(id, ime, prezime, maticni_broj)
+	insert into korisnik_usluge(id, ime, prezime, maticni_broj)
 	values (nextval('KORISNIK_USLUGE_SEQ'), 'Lazar', 'Popovic', '1307001152635');
 	
-	insert into "korisnikUsluge"(id, ime, prezime, maticni_broj)
+	insert into korisnik_usluge(id, ime, prezime, maticni_broj)
 	values (nextval('KORISNIK_USLUGE_SEQ'), 'Milos', 'Starcevic', '0506001261538');
 	
 	
