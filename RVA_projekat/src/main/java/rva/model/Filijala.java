@@ -26,7 +26,7 @@ public class Filijala implements Serializable{
 	private boolean poseduje_sef;
 	
 	@ManyToOne
-	@JoinColumn(name = "banka")
+	@JoinColumn(name = "banka", nullable = false)
 	private Banka banka;
 	
 	@OneToMany(mappedBy="filijala")

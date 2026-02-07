@@ -12,7 +12,7 @@ import rva.model.Filijala;
 public interface FilijalaRepository extends JpaRepository<Filijala, Long>{
 public abstract List<Filijala> findByAdresaContainingIgnoreCase(String adresa);
 	
-	@Query(value = "SELECT id, adresa, broj_pultova, poseduje_sef, banka FROM Filijala f WHERE LOWER(f.adresa) LIKE LOWER(CONCAT('%', :search, '%'))")
+	@Query(value = "SELECT f FROM Filijala f WHERE LOWER(f.adresa) LIKE LOWER(CONCAT('%', :search, '%'))")
 	List<Filijala> getBySearch(@Param("search") String search);
-	List<Filijala> findByBanka(Banka banka);
+	//List<Filijala> findByBanka(Banka banka);
 }

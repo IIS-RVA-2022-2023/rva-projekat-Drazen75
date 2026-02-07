@@ -21,7 +21,6 @@ import rva.service.FilijalaService;
 
 @CrossOrigin
 @RestController
-@RequestMapping("filijala")
 public class FilijalaController {
 	
 	@Autowired
@@ -30,7 +29,6 @@ public class FilijalaController {
 	@GetMapping("/filijala")
 	public ResponseEntity<List<Filijala>> getAllFilijala() {
         
-        // Your business logic here
 		List<Filijala> filijale = service.getAll();
 		return new ResponseEntity<>(filijale, HttpStatus.OK);
 	}

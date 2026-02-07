@@ -36,10 +36,10 @@ public class FilijalaService {
 	}
 	
 	//Trazenje po banci koja je strani kljuc u filijali
-	public Optional<List<Filijala>> findFilijalaByBanka(Banka banka){
+	/*public Optional<List<Filijala>> findFilijalaByBanka(Banka banka){
 		Optional<List<Filijala>> filijale = Optional.of(repo.findByBanka(banka));
 		return filijale;
-	}
+	}*/
 	
 	public Filijala save(Filijala filijala) {
 		return repo.save(filijala);
