@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import rva.model.Banka;
@@ -21,51 +22,52 @@ import rva.service.BankaService;
 
 @CrossOrigin
 @RestController
+@RequestMapping("banka")
 public class BankaController {
 
 		@Autowired
 		private BankaService service;
 		
-		@GetMapping("/test")
+		/*@GetMapping("/test")
 		public String test() {
 		    return "Radi";
-		}
+		}*/
 		
-		@GetMapping ("/banka")
+		@GetMapping //("/banka")
 		public ResponseEntity <List<Banka>> getAllBanks(){	
 			return ResponseEntity.ok(service.getAll());
 		}
 		
-		@GetMapping("/banka/{id}")
+		@GetMapping("/{id}")
 		public ResponseEntity<?> getBankaById(@PathVariable long id){
-			if(service.existsById(id)) {
-				return ResponseEntity.ok(service.getById(id));
+			if(service.getById(id).isPresent()) {
+				return ResponseEntity.ok(service.getById(id).get());
 			} else {
 				return ResponseEntity.status(HttpStatus.NOT_FOUND)
-						.body("Resource with requested ID:" + id + "does not exist");
+						.body("Banka sa trazenim ID:" + id + "ne postoji!");
 			}
 		}
 		
-		@GetMapping("/banka/naziv/{naziv}")
+		@GetMapping("/naziv/{naziv}")
 		public ResponseEntity<?> getBankaByNaziv(@PathVariable String naziv){
 			
 			if(service.getByNaziv(naziv).get().isEmpty()) {
 				
 				return ResponseEntity.status(HttpStatus.NOT_FOUND)
-						.body("Resource with requested Naziv: " + naziv + "does not exist");
+						.body("Banka sa trazenim Nazivom: " + naziv + "ne postoji!");
 				
 			}else {
 				return ResponseEntity.ok(service.getByNaziv(naziv).get());
 			}
 		}
 		
-		@GetMapping("/banka/bankaSearch/{search}")
+		@GetMapping("/bankaSearch/{search}")
 		public  ResponseEntity<?> getBankaBySearch(@PathVariable String search){
 			
 			List<Banka> bolnice = service.getBySearch(search);
 			if(bolnice.isEmpty())
 				return new ResponseEntity<>(
-				          "Ni jedna slicna banka ne postoji", 
+				          "Ni jedna slicna banka ne postoji!",
 				          HttpStatus.NOT_FOUND);
 			return ResponseEntity.status(HttpStatus.OK)
 			        .body(bolnice);
@@ -75,7 +77,7 @@ public class BankaController {
 		//			DODAJ BANKU			  *
 		//*********************************
 		
-		@PostMapping("/banka")
+		@PostMapping//("/banka")
 		public ResponseEntity<?> createBanka(@RequestBody Banka banka){
 			Banka savedBanka;
 			if(!service.existsById(banka.getId())) {
@@ -113,7 +115,7 @@ public class BankaController {
 		//		AZURIRAJ BANKU			  *
 		//*********************************
 		
-		@PutMapping("/banka/{id}")
+		@PutMapping("/{id}")
 		public ResponseEntity<?> updateBanka(@RequestBody Banka banka, @PathVariable long id){
 			
 			if(service.existsById(id)) {
@@ -126,7 +128,7 @@ public class BankaController {
 			} else {
 				
 				return ResponseEntity.status(HttpStatus.NOT_FOUND)
-						.body("Resource with requested id: " + id + " has not been found");
+						.body("Banka sa id = " + id + "nije pronadjena!");
 				
 			}
 		}
@@ -134,20 +136,20 @@ public class BankaController {
 		//*********************************
 		//		IZBRISI BANKU			  *
 		//*********************************
-		@DeleteMapping("/banka/{id}")
+		@DeleteMapping("/{id}")
 		public ResponseEntity<?> deleteBanka(@PathVariable long id) {
 			
 			if(service.existsById(id)) {
 				
 				service.deleteById(id);
 				
-				return ResponseEntity.ok("Resource with requested id: " + id + " has been deleted");
+				return ResponseEntity.ok("Banka sa id = " + id + "je uspesno obrisana!");
 				
 			}
 			else {
 				
 				return ResponseEntity.status(HttpStatus.NOT_FOUND)
-				.body("Resource with requested id: " + id + " has not been found");
+				.body("Banka sa id = " + id + "nije pronadjena!");
 				
 			}
 		}
