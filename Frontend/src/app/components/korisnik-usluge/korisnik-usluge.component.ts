@@ -11,7 +11,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { RouterModule } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Korisnik_usluge } from '../../models/korisnik_usluge';
+import { KorisnikUsluge } from '../../models/korisnikUsluge';
 import { KorisnikUslugeService } from '../../services/korisnik_usluge.service';
 import { KorisnikUslugeDialogComponent } from '../../dialogs/korisnikusluge-dialog/korisnikusluge-dialog.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -24,8 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
 export class Korisnik_uslugeComponent {
   subscription!: Subscription;
   displayedColumns = ['id', 'ime', 'prezime', 'maticni_broj', 'actions'];
-  data!: MatTableDataSource<Korisnik_usluge>;
-  selektovaniKorisnik_usluge!: Korisnik_usluge;
+  data!: MatTableDataSource<KorisnikUsluge>;
+  selektovaniKorisnikUsluge!: KorisnikUsluge;
   @ViewChild(MatSort, { static: false }) sort!: MatSort;
   @ViewChild(MatPaginator, { static: false }) paginator!: MatPaginator;
 
@@ -60,10 +60,10 @@ export class Korisnik_uslugeComponent {
     );
   }
 
-  public openDialog(flag: number, korisnik_usluge?: Korisnik_usluge): void {
-    console.log('Korisnik_usluge passed to dialog:', Korisnik_usluge);
+  public openDialog(flag: number, korisnik_usluge?: KorisnikUsluge): void {
+    console.log('Korisnik_usluge passed to dialog:', korisnik_usluge);
     const dialogRef = this.dialog.open(KorisnikUslugeDialogComponent, {
-      data: (korisnik_usluge ? korisnik_usluge : new Korisnik_usluge())
+      data: (korisnik_usluge ? korisnik_usluge : new KorisnikUsluge())
     });
 
     dialogRef.componentInstance.flagArtDialog = flag;
@@ -74,8 +74,8 @@ export class Korisnik_uslugeComponent {
 }
 
 
-  selectRow(row: Korisnik_usluge) {
-    this.selektovaniKorisnik_usluge = row;
+  selectRow(row: KorisnikUsluge) {
+    this.selektovaniKorisnikUsluge = row;
     console.log("click")
   }
 

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { URL } from '../../app.constants';
-import { Korisnik_usluge } from '../models/korisnik_usluge';
+import { KorisnikUsluge } from '../models/korisnikUsluge';
 
 @Injectable({
   providedIn: 'root'
@@ -15,11 +15,11 @@ export class KorisnikUslugeService {
     return this.httpClient.get(URL + "/korisnikUsluge");
   }
 
-  public addKorisnikUsluge(korisnikUsluge: Korisnik_usluge): Observable<any>{
+  public addKorisnikUsluge(korisnikUsluge: KorisnikUsluge): Observable<any>{
     return this.httpClient.post(URL + "/korisnikUsluge", korisnikUsluge);
   }
 
-  public updateKorisnikUsluge(korisnikUsluge: Korisnik_usluge): Observable<any>{
+  public updateKorisnikUsluge(korisnikUsluge: KorisnikUsluge): Observable<any>{
     return this.httpClient.put(URL + "/korisnikUsluge/" + korisnikUsluge.id, korisnikUsluge);
   }
 
