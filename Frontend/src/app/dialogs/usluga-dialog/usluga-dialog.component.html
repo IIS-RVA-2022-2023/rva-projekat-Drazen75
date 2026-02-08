@@ -39,7 +39,7 @@
         </div>
         <div class="form">
              <mat-form-field>
-                <mat-select [(ngModel)]="data.korsinik_usluge" placeholder="Korisnik Usluge"
+                <mat-select [(ngModel)]="data.korisnikUsluge" placeholder="Korisnik Usluge"
                     name="korisnik_usluge" [compareWith]="compareTo"
                     [disabled]="flagArtDialog == 5">
                     <mat-option *ngFor="let korisnik of korsniciUsluge" [value]="korisnik">

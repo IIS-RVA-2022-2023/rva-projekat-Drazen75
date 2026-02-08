@@ -1,5 +1,5 @@
 import { Filijala } from "./filijala";
-import { Korisnik_usluge } from "./korisnik_usluge";
+import { KorisnikUsluge } from "./korisnikUsluge";
 
 export class Usluga {
   id!: number;
@@ -8,5 +8,5 @@ export class Usluga {
   datum_ugovora!: Date;
   provizija!: number;
   filijala!: Filijala;
-  korsinik_usluge!: Korisnik_usluge;  
+  korisnikUsluge!: KorisnikUsluge;  
 }

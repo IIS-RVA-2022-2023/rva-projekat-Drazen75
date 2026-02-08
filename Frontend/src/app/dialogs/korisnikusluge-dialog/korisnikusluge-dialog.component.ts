@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Korisnik_usluge } from '../../models/korisnik_usluge';
+import { KorisnikUsluge } from '../../models/korisnikUsluge';
 import { KorisnikUslugeService } from '../../services/korisnik_usluge.service';
 import { Filijala } from 'src/app/models/filijala';
 import { Subscription } from 'rxjs';
@@ -24,7 +24,7 @@ export class KorisnikUslugeDialogComponent {
   constructor(
     public snackBar: MatSnackBar,
     public korisnikUslugeService: KorisnikUslugeService,
-    @Inject(MAT_DIALOG_DATA) public data: Korisnik_usluge,
+    @Inject(MAT_DIALOG_DATA) public data: KorisnikUsluge,
     public dialogRef: MatDialogRef<KorisnikUslugeDialogComponent>
   ) { }
   /* public filijalaService: FilijalaService,

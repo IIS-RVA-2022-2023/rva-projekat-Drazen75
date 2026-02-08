@@ -7,7 +7,7 @@ import { KorisnikUslugeService } from 'src/app/services/korisnik_usluge.service'
 import { FilijalaService } from 'src/app/services/filijala.service';
 import { Subscription } from 'rxjs';
 import { Filijala } from 'src/app/models/filijala';
-import { Korisnik_usluge } from 'src/app/models/korisnik_usluge';
+import { KorisnikUsluge } from 'src/app/models/korisnikUsluge';
 import { MatFormFieldModule } from "@angular/material/form-field";
 
 @Component({
@@ -19,7 +19,7 @@ export class UslugaDialogComponent {
   public flagArtDialog!: number;
   private subscription!: Subscription;
   public filijale!: Filijala[]
-  public korsniciUsluge!: Korisnik_usluge[];
+  public korsniciUsluge!: KorisnikUsluge[];
   isLoading: any;
 
   constructor(public snackBar: MatSnackBar,
